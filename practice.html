@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>תרגול</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="top">
+    <a class="link topBack" href="./index.html">← חזרה</a>
+    <h1 id="title">תרגול</h1>
+    <p id="subtitle" class="sub"></p>
+  </header>
+
+  <main class="container">
+    <section class="card card--explain">
+      <div class="row" style="justify-content:flex-end;">
+        <span class="badge" id="progressBadge">תרגול</span>
+      </div>
+
+      <h2>הסבר</h2>
+      <div id="explain" class="text"></div>
+      <div id="hint" class="hint hidden"></div>
+    </section>
+
+    <section class="card card--task">
+      <h2>משימה</h2>
+      <div id="task" class="text"></div>
+    </section>
+
+    <section class="card card--practice">
+      <h2>תרגול</h2>
+      <div id="practiceArea"></div>
+      <div id="practiceAreaFeedback" class="feedbackArea"></div>
+
+      <div class="row" style="justify-content:flex-end; margin-top:14px;">
+        <button id="nextBtn" class="btn btnGreen">הבא ←</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data/challenges.js"></script>
+  <script src="js/question-renderers.js"></script>
+  <script src="js/practice.js"></script>
+</body>
+</html>
