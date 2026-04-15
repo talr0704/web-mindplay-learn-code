@@ -25,9 +25,9 @@
   --surface2: rgba(255,255,255,.015);
 
   /* === Text === */
-  --text:   #D8E4FF;
-  --muted:  #7A92B8;
-  --muted2: #4A607A;
+  --text:   #F0F6FF;
+  --muted:  #C0D0EE;
+  --muted2: #8899BB;
 
   /* === Borders === */
   --border:      rgba(0,212,255,.13);
