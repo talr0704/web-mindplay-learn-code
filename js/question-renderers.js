@@ -68,10 +68,10 @@ function _makeCustomSelect(options, placeholder, ariaLabel) {
     "top:calc(100% + 6px)",
     "right:0",
     "min-width:100%",
-    "background:var(--surface,#fff)",
-    "border:1.5px solid var(--border,#DDE4EF)",
-    "border-radius:14px",
-    "box-shadow:0 8px 32px rgba(30,41,59,.14)",
+    "background:#0D0F22",
+    "border:1px solid rgba(0,212,255,.25)",
+    "border-radius:10px",
+    "box-shadow:0 8px 32px rgba(0,0,0,.7),0 0 20px rgba(0,212,255,.1)",
     "z-index:300",
     "overflow-y:auto",
     "max-height:220px",
@@ -97,16 +97,16 @@ function _makeCustomSelect(options, placeholder, ariaLabel) {
     const item = document.createElement("div");
     item.setAttribute("role", "option");
     item.textContent = opt;
-    item.style.cssText = "padding:10px 16px; cursor:pointer; font-size:14px; color:var(--text,#1E293B); direction:rtl; text-align:right; transition:background .1s;";
-    item.addEventListener("mouseenter", () => { item.style.background = "var(--tealBg,#EAFAFA)"; });
-    item.addEventListener("mouseleave", () => { item.style.background = selectedValue === opt ? "var(--tealBg,#EAFAFA)" : ""; });
+    item.style.cssText = "padding:10px 16px; cursor:pointer; font-size:14px; color:var(--text,#D8E4FF); direction:rtl; text-align:right; transition:background .1s;";
+    item.addEventListener("mouseenter", () => { item.style.background = "rgba(0,212,255,.08)"; });
+    item.addEventListener("mouseleave", () => { item.style.background = selectedValue === opt ? "rgba(0,212,255,.12)" : ""; });
     item.addEventListener("mousedown", e => e.preventDefault());
     item.addEventListener("click", () => {
       dropdown.querySelectorAll("[role='option']").forEach(o => o.style.background = "");
       selectedValue = opt;
-      item.style.background = "var(--tealBg,#EAFAFA)";
+      item.style.background = "rgba(0,212,255,.12)";
       btnText.textContent = opt;
-      btnText.style.color = "var(--text,#1E293B)";
+      btnText.style.color = "var(--text,#D8E4FF)";
       close();
     });
     dropdown.appendChild(item);
