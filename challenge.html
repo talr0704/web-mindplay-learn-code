@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("mindplay-theme")||"dark");</script>
 </head>
 <body>
   <audio id="sfxRun" src="assets/sfx/run.wav" preload="auto"></audio>
@@ -15,6 +16,7 @@
   <audio id="sfxError" src="assets/sfx/error.wav" preload="auto"></audio>
 
   <header class="top">
+    <button id="themeToggle" aria-label="החלף ערכת צבעים" title="החלף ערכת צבעים">☀</button>
     <a class="link topBack" href="./index.html">← חזרה</a>
     <h1 id="title">אתגר</h1>
     <p id="subtitle" class="sub"></p>
@@ -83,5 +85,6 @@
   <script src="js/runner.js"></script>
   <script src="js/question-renderers.js"></script>
   <script src="js/challenge.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>

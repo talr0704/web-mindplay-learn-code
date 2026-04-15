@@ -8,10 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("mindplay-theme")||"dark");</script>
 </head>
 <body class="home">
 
   <header class="top">
+    <button id="themeToggle" aria-label="החלף ערכת צבעים" title="החלף ערכת צבעים">☀</button>
     <h1>משימות תרגול לתלמידי מיינדפליי בפייתון</h1>
     <p class="sub">תלמידי מיינדפלי, זה המקום לתכנת משימות כיפיות! המטרה שלנו שתלמדו, תהנו ותיצרו פרויקטים ומשחקים מדהימים. תקראו את המשימות ותתכנתו פתרון בחלונית הקוד שבאתר או בפרויקטים שלכם — לא בטוחים? צפו בסרטון ההסבר.</p>
   </header>
@@ -68,5 +70,6 @@
       </div>
     </section>
   </main>
+  <script src="js/theme.js"></script>
 </body>
 </html>
