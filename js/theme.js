@@ -4,7 +4,7 @@
   function applyTheme(t) {
     document.documentElement.setAttribute("data-theme", t);
     var btn = document.getElementById("themeToggle");
-    if (btn) btn.textContent = t === "dark" ? "☀" : "🌑";
+    if (btn) btn.textContent = t === "dark" ? "☀" :🌙";
   }
 
   var saved = localStorage.getItem("mindplay-theme") || "dark";
