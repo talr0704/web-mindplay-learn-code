@@ -56,10 +56,14 @@ function main() {
   const id = params.get("id");
   const ch = CHALLENGES.find(x => x.id === id);
 
+  // סינון לפי קטגוריה — לניווט ולספירה
+  const group = params.get("group") || ch?.group || "";
+  const groupChallenges = CHALLENGES.filter(x => (x.group ?? "") === group);
+
   function getNextChallengeId(currentId) {
-    const idx = CHALLENGES.findIndex(x => x.id === currentId);
+    const idx = groupChallenges.findIndex(x => x.id === currentId);
     if (idx === -1) return null;
-    return CHALLENGES[idx + 1]?.id ?? null;
+    return groupChallenges[idx + 1]?.id ?? null;
   }
 
   function goNextChallenge() {
@@ -73,7 +77,8 @@ function main() {
 
     const nextCh = CHALLENGES.find(x => x.id === nextId);
     const page = (nextCh?.mode === "practiceOnly") ? "practice.html" : "challenge.html";
-    location.href = `./${page}?id=${encodeURIComponent(nextId)}`;
+    const groupPart = group ? `&group=${encodeURIComponent(group)}` : "";
+    location.href = `./${page}?id=${encodeURIComponent(nextId)}${groupPart}`;
   }
 
   if (!id) {
@@ -111,11 +116,11 @@ function main() {
   if (task) task.textContent = ch.task ?? "";
   if (hint) hint.textContent = ch.hint ?? "";
   if (solution) solution.textContent = ch.solution ?? "";
-  const idx = CHALLENGES.findIndex(x => x.id === ch.id);
-  if (progressBadge) progressBadge.textContent = `אתגר ${idx + 1} מתוך ${CHALLENGES.length}`;
+  const idx = groupChallenges.findIndex(x => x.id === ch.id);
+  if (progressBadge) progressBadge.textContent = `אתגר ${idx + 1} מתוך ${groupChallenges.length}`;
 
   // ✅ progress dots
-  renderProgressDots(idx, CHALLENGES.length);
+  renderProgressDots(idx, groupChallenges.length);
 
   // שמירה מקומית
   const key = "code_" + ch.id;
