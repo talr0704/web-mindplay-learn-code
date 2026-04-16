@@ -20,9 +20,9 @@
   --yellowBorder: rgba(255,229,0,.30);
 
   /* === Backgrounds === */
-  --bg:      #07070E;
-  --surface: rgba(255,255,255,.03);
-  --surface2: rgba(255,255,255,.015);
+  --bg:      #1A1D2E;
+  --surface: rgba(255,255,255,.06);
+  --surface2: rgba(255,255,255,.03);
 
   /* === Text === */
   --text:   #D8E4FF;
@@ -401,23 +401,22 @@ h3 { font-size: 14.5px; font-weight: 500; }
   width: 100%;
   min-height: 190px;
   border-radius: var(--r-lg);
-  border: 1px solid rgba(0,212,255,.2);
-  background: #030610;
+  border: 2px solid #00D4FF;
+  background: #080C1A;
   color: #B8F0FF;
   padding: 14px;
-  box-shadow: inset 0 2px 12px rgba(0,0,0,.5), 0 0 20px rgba(0,212,255,.05);
+  box-shadow: 0 0 0 1px rgba(0,212,255,.15), 0 0 20px rgba(0,212,255,.2), inset 0 2px 12px rgba(0,0,0,.4);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 14px;
   direction: ltr;
   text-align: left;
   unicode-bidi: plaintext;
   resize: vertical;
-  transition: border-color .2s, box-shadow .2s;
+  transition: box-shadow .2s;
 }
 .editor:focus {
   outline: none;
-  border-color: rgba(0,212,255,.5);
-  box-shadow: inset 0 2px 12px rgba(0,0,0,.5), 0 0 20px rgba(0,212,255,.12);
+  box-shadow: 0 0 0 1px rgba(0,212,255,.3), 0 0 30px rgba(0,212,255,.4), inset 0 2px 12px rgba(0,0,0,.4);
 }
 
 .output {
