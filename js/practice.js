@@ -2,6 +2,12 @@ const params = new URLSearchParams(location.search);
 const id = params.get("id");
 const ch = (typeof CHALLENGES !== "undefined") ? CHALLENGES.find(x => x.id === id) : null;
 
+// סינון לפי קטגוריה — לניווט ולספירה
+const _group = params.get("group") || ch?.group || "";
+const _groupChallenges = (typeof CHALLENGES !== "undefined")
+  ? CHALLENGES.filter(x => (x.group ?? "") === _group)
+  : [];
+
 function pick(arr){
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -36,9 +42,9 @@ function renderProgressDots(currentIndex, total){
 }
 
 function getNextChallengeId(currentId){
-  const idx = CHALLENGES.findIndex(x => x.id === currentId);
+  const idx = _groupChallenges.findIndex(x => x.id === currentId);
   if (idx === -1) return null;
-  return CHALLENGES[idx + 1]?.id ?? null;
+  return _groupChallenges[idx + 1]?.id ?? null;
 }
 
 function goNext(){
@@ -50,7 +56,8 @@ function goNext(){
   }
   const nextCh = CHALLENGES.find(x => x.id === nextId);
   const page = (nextCh?.mode === "practiceOnly") ? "practice.html" : "challenge.html";
-  location.href = `./${page}?id=${encodeURIComponent(nextId)}`;
+  const groupPart = _group ? `&group=${encodeURIComponent(_group)}` : "";
+  location.href = `./${page}?id=${encodeURIComponent(nextId)}${groupPart}`;
 }
 
 if (!ch) {
@@ -71,11 +78,11 @@ if (!ch) {
   // document.getElementById("hintBtn").onclick = () => hintEl.classList.toggle("hidden");
 
   const progressBadge = document.getElementById("progressBadge");
-  const idx = CHALLENGES.findIndex(x => x.id === ch.id);
-  progressBadge.textContent = `אתגר ${idx + 1} מתוך ${CHALLENGES.length}`;
+  const idx = _groupChallenges.findIndex(x => x.id === ch.id);
+  progressBadge.textContent = `אתגר ${idx + 1} מתוך ${_groupChallenges.length}`;
 
   // ✅ progress dots
-  renderProgressDots(idx, CHALLENGES.length);
+  renderProgressDots(idx, _groupChallenges.length);
 
   const area = document.getElementById("practiceArea");
   area.innerHTML = "";
