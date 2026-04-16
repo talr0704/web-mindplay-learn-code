@@ -25,9 +25,9 @@
   --surface2: rgba(255,255,255,.015);
 
   /* === Text === */
-  --text:   #FFFFFF;
-  --muted:  rgba(255,255,255,.90);
-  --muted2: rgba(255,255,255,.70);
+  --text:   #D8E4FF;
+  --muted:  #ffffff;
+  --muted2: #4A607A;
 
   /* === Borders === */
   --border:      rgba(0,212,255,.13);
@@ -153,7 +153,7 @@ h2 { font-size: 16px; font-weight: 600; }
 h3 { font-size: 14.5px; font-weight: 500; }
 
 .sub {
-  color: rgba(255,255,255,.90);
+  color: white;
   margin: 10px 0 0;
   font-size: 16px;
   font-weight: 400;
