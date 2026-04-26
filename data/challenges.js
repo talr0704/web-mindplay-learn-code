@@ -1311,6 +1311,58 @@ print("תשלם:", final)`,
       ]
     }
   },
+  {
+  id: "two_digit_check",
+  group: "projects_y1",
+  topic: "תנאים",
+  title: "בדיקת מספר דו־ספרתי",
+  subtitle: "if + טווח מספרים",
+  explain: "מספר דו־ספרתי הוא מספר בין 10 ל־99 (כולל). כתבו תוכנית שבודקת האם המספר שהמשתמש הזין הוא דו־ספרתי.",
+  task: "קלטו מספר מהמשתמש והדפיסו 'כן' אם הוא דו־ספרתי, אחרת 'לא'.",
+  hint: "בדקו אם המספר בין 10 ל־99.",
+  starter: `num = int(input("הכנס מספר: "))
+# כתבו תנאי שבודק אם המספר דו־ספרתי`,
+  solution: `num = int(input("הכנס מספר: "))
+
+if 10 <= num <= 99:
+    print("כן")
+else:
+    print("לא")`,
+  expectedOutput: null,
+  fallback: {
+    type: "steps",
+    steps: [
+      {
+        title: "שלב 1: מהו מספר דו־ספרתי?",
+        type: "quiz",
+        question: "איזה מספר הוא דו־ספרתי?",
+        options: ["7", "45", "103", "9"],
+        correctIndex: 1,
+        explainCorrect: "45 נמצא בין 10 ל־99 ולכן הוא דו־ספרתי.",
+        explainWrong: "מספר דו־ספרתי חייב להיות בין 10 ל־99."
+      },
+      {
+        title: "שלב 2: תנאי נכון",
+        type: "fill",
+        promptParts: ["if 10 <= num <= ", ":"],
+        blanks: [{ correct: "99" }],
+        bank: ["99", "100", "9", "10"],
+        explainCorrect: "מספר דו־ספרתי מסתיים ב־99.",
+        explainWrong: "הגבול העליון הוא 99."
+      },
+      {
+        title: "שלב 3: חזאי קוד",
+        type: "predictOutput",
+        question: "מה יודפס אם num = 50?",
+        code: "num = 50\nif 10 <= num <= 99:\n    print('כן')",
+        options: ["כן", "לא", "50", "None"],
+        correctIndex: 0,
+        explainCorrect: "50 נמצא בטווח 10–99.",
+        explainWrong: "50 הוא מספר דו־ספרתי."
+      }
+    ]
+  }
+},
 
   /* ======================
      PROJECTS – YEAR 2
