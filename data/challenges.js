@@ -1239,77 +1239,12 @@ else:
   },
 
   {
-    id: "temp_converter",
-    group: "projects_y1",
-    topic: "נוסחאות",
-    title: "🌡️ ממיר טמפרטורה",
-    subtitle: "צלזיוס → פרנהייט",
-    explain: "חבר שלכם גר בניו-יורק ושולח כל בוקר את הטמפרטורה — אבל בפרנהייט! אתם רגילים לצלזיוס ולא מבינים כלום. בנו תוכנית שתמיר: F = C × 9/5 + 32. נקודת קפיאה: 0°C = 32°F. רתיחה: 100°C = 212°F.",
-    task: "קלטו טמפרטורה בצלזיוס (float) והדפיסו את הערך המתאים בפרנהייט.",
-    hint: "f = c * 9 / 5 + 32",
-    starter: `c = float(input("טמפרטורה בצלזיוס: "))
-# המירו והדפיסו בפרנהייט`,
-    solution: `c = float(input("טמפרטורה בצלזיוס: "))
-f = c * 9 / 5 + 32
-print(f)`,
-    expectedOutput: null,
-    fallback: {
-      type: "steps",
-      steps: [
-        {
-          title: "שלב 1: נקודות ייחוס",
-          type: "match",
-          question: "חברו כל טמפרטורה לערך המקביל שלה:",
-          lefts:  ["0°C", "100°C", "37°C"],
-          rights: ["32°F", "212°F", "98.6°F", "0°F", "310°F"],
-          correctPairs: {
-            "0°C":   "32°F",
-            "100°C": "212°F",
-            "37°C":  "98.6°F"
-          },
-          explainCorrect: "קפיאה=32°F, רתיחה=212°F, חום גוף=98.6°F — נקודות ייחוס קלאסיות!",
-          explainWrong: "0°C=32°F (קפיאה), 100°C=212°F (רתיחה), 37°C=98.6°F (גוף)"
-        },
-        {
-          title: "שלב 2: בניית הנוסחה",
-          type: "dragIntoCode",
-          question: "השלימו את נוסחת ההמרה:",
-          promptParts: ["f = c * 9 / ", " + "],
-          blanks: [{ correct: "5" }, { correct: "32" }],
-          bank: ["5", "32", "9", "100", "2", "0"],
-          explainCorrect: "F = C × 9/5 + 32. חלקי הנוסחה: כפל ב-9, חלוקה ב-5, ועוד 32.",
-          explainWrong: "הנוסחה: F = C × 9 ÷ 5 + 32 — הבלנקים הם 5 ו-32"
-        },
-        {
-          title: "שלב 3: חזאי קוד",
-          type: "predictOutput",
-          question: "מה יודפס כשמריצים עם c = 0 ?",
-          code: "c = 0\nf = c * 9 / 5 + 32\nprint(f)",
-          options: ["0.0", "9.0", "32.0", "37.0"],
-          correctIndex: 2,
-          explainCorrect: "0 × 9/5 = 0, ואז 0 + 32 = 32.0 — נקודת הקפאה!",
-          explainWrong: "0 כפול כל מספר = 0. אחר כך 0 + 32 = 32"
-        },
-        {
-          title: "שלב 4: מצאו את הבאג",
-          type: "debug",
-          question: "הנוסחה שגויה — תקנו אותה:",
-          starterCode: "c = float(input('טמפרטורה בצלזיוס: '))\nf = c + 9 / 5 * 32\nprint(f)",
-          solution:    "c = float(input('טמפרטורה בצלזיוס: '))\nf = c * 9 / 5 + 32\nprint(f)",
-          explainCorrect: "c + 9 צריך להיות c * 9, וסדר הפעולות בנוסחה השתנה",
-          explainWrong: "שימו לב: צריך c × 9, לא c + 9. גם סדר חלוקה/חיבור חשוב"
-        }
-      ]
-    }
-  },
-
-  {
     id: "discount_calculator",
     group: "projects_y1",
     topic: "אחוזים",
     title: "🛍️ מחשבון הנחה",
     subtitle: "חישוב מחיר אחרי הנחה",
-    explain: "ראיתם נעליים מגניבות ב-350 ש\"ח ויש שלט: \"הנחה 30%\"! כמה תחסכו? כמה תשלמו בסוף? בנו תוכנית שתחשב: saved = price × discount ÷ 100, final = price − saved.",
+    explain: "את הסכום שיצא לאחר ההנחה ראיתם נעליים מגניבות ב-350 ש\"ח ויש שלט: \"הנחה 30%\"! כמה תחסכו? כמה תשלמו בסוף? בנו תוכנית שתחשב.",
     task: "קלטו מחיר מקורי ואחוז הנחה (float), חשבו את הסכום שחוסכים ואת המחיר הסופי, והדפיסו שניהם.",
     hint: "saved = price * discount / 100\nfinal = price - saved",
     starter: `price = float(input("מחיר מקורי: "))
