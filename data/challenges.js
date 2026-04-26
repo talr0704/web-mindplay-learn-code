@@ -1363,6 +1363,172 @@ else:
     ]
   }
 },
+  {
+  id: "swap_values",
+  group: "projects_y1",
+  topic: "משתנים",
+  title: "החלפת ערכים",
+  subtitle: "השמה חכמה",
+  explain: "לפעמים רוצים להחליף בין ערכים של שני משתנים. בפייתון ניתן לבצע החלפה בשורה אחת.",
+  task: "החליפו בין הערכים של a ו־b והדפיסו אותם לאחר ההחלפה.",
+  hint: "אפשר לכתוב: a, b = b, a",
+  starter: `a = 3
+b = 8
+
+# החליפו בין הערכים`,
+  solution: `a = 3
+b = 8
+
+a, b = b, a
+
+print(a)
+print(b)`,
+  expectedOutput: null,
+  fallback: {
+    type: "steps",
+    steps: [
+      {
+        title: "שלב 1: מה יודפס?",
+        type: "predictOutput",
+        question: "מה יודפס?",
+        code: "a = 3\nb = 8\na, b = b, a\nprint(a)",
+        options: ["3", "8", "None", "error"],
+        correctIndex: 1,
+        explainCorrect: "a מקבל את הערך של b.",
+        explainWrong: "הערכים מתחלפים."
+      },
+      {
+        title: "שלב 2: השלמת קוד",
+        type: "fill",
+        promptParts: ["a, b = ", ", a"],
+        blanks: [{ correct: "b" }],
+        bank: ["b", "a", "c"],
+        explainCorrect: "כדי להחליף – a מקבל b.",
+        explainWrong: "צריך להחליף בין המשתנים."
+      }
+    ]
+  }
+},
+{
+  id: "even_and_positive",
+  group: "projects_y1",
+  topic: "תנאים",
+  title: "מספר חיובי וזוגי",
+  subtitle: "and + modulo",
+  explain: "כדי לבדוק אם מספר זוגי משתמשים ב־%. אם num % 2 == 0 המספר זוגי.",
+  task: "קלטו מספר והדפיסו 'מתאים' אם הוא גם חיובי וגם זוגי.",
+  hint: "בדקו num > 0 וגם num % 2 == 0",
+  starter: `num = int(input("הכנס מספר: "))
+# בדקו תנאי`,
+  solution: `num = int(input("הכנס מספר: "))
+
+if num > 0 and num % 2 == 0:
+    print("מתאים")`,
+  expectedOutput: null,
+  fallback: {
+    type: "steps",
+    steps: [
+      {
+        title: "שלב 1: זוגי או אי־זוגי?",
+        type: "quiz",
+        question: "איזה מספר זוגי?",
+        options: ["7", "11", "8", "9"],
+        correctIndex: 2,
+        explainCorrect: "8 מתחלק ב־2.",
+        explainWrong: "מספר זוגי מתחלק ב־2."
+      },
+      {
+        title: "שלב 2: השלמת תנאי",
+        type: "fill",
+        promptParts: ["num % ", " == 0"],
+        blanks: [{ correct: "2" }],
+        bank: ["2", "1", "0"],
+        explainCorrect: "בודקים זוגיות בעזרת 2.",
+        explainWrong: "בדיקת זוגיות נעשית מול 2."
+      }
+    ]
+  }
+},  
+  {
+  id: "middle_number_check",
+  group: "projects_y1",
+  topic: "השוואות",
+  title: "האם המספר באמצע?",
+  subtitle: "השוואות כפולות",
+  explain: "לפעמים צריך לבדוק אם מספר אחד נמצא בין שניים אחרים.",
+  task: "קלטו שלושה מספרים ובדקו האם המספר השני ביניהם.",
+  hint: "בדקו אם a < b < c או c < b < a",
+  starter: `a = int(input("מספר ראשון: "))
+b = int(input("מספר שני: "))
+c = int(input("מספר שלישי: "))
+# בדקו אם b באמצע`,
+  solution: `a = int(input("מספר ראשון: "))
+b = int(input("מספר שני: "))
+c = int(input("מספר שלישי: "))
+
+if a < b < c or c < b < a:
+    print("כן")
+else:
+    print("לא")`,
+  expectedOutput: null,
+  fallback: {
+    type: "steps",
+    steps: [
+      {
+        title: "שלב 1: דוגמה",
+        type: "quiz",
+        question: "האם 7 באמצע בין 3 ל־10?",
+        options: ["כן", "לא"],
+        correctIndex: 0,
+        explainCorrect: "7 בין 3 ל־10.",
+        explainWrong: "7 נמצא בין המספרים."
+      }
+    ]
+  }
+},
+  {
+  id: "string_starts_with_a",
+  group: "projects_y1",
+  topic: "מחרוזות",
+  title: "בדיקת אות ראשונה",
+  subtitle: "גישה לפי אינדקס",
+  explain: "אפשר לגשת לאות הראשונה במילה בעזרת word[0].",
+  task: "קלטו מילה והדפיסו 'כן' אם היא מתחילה באות a.",
+  hint: "בדקו word[0] == 'a'",
+  starter: `word = input("הכנס מילה: ")
+# בדקו את האות הראשונה`,
+  solution: `word = input("הכנס מילה: ")
+
+if word[0] == "a":
+    print("כן")
+else:
+    print("לא")`,
+  expectedOutput: null,
+  fallback: {
+    type: "steps",
+    steps: [
+      {
+        title: "שלב 1: אינדקס ראשון",
+        type: "quiz",
+        question: "מה האות הראשונה במילה apple?",
+        options: ["p", "a", "l", "e"],
+        correctIndex: 1,
+        explainCorrect: "האינדקס הראשון הוא 0.",
+        explainWrong: "האות הראשונה היא באינדקס 0."
+      },
+      {
+        title: "שלב 2: השלמת קוד",
+        type: "fill",
+        promptParts: ["word[", "]"],
+        blanks: [{ correct: "0" }],
+        bank: ["0", "1", "-1"],
+        explainCorrect: "האינדקס הראשון הוא 0.",
+        explainWrong: "האות הראשונה נמצאת במיקום 0."
+      }
+    ]
+  }
+}
+  
 
   /* ======================
      PROJECTS – YEAR 2
